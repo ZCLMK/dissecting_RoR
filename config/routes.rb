@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :showcases
   get 'pages/home'
 
   get 'pages/about'

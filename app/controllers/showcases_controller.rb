@@ -1,0 +1,2 @@
+class ShowcasesController < ApplicationController
+end
