@@ -1,0 +1,10 @@
+<h1>Showcase Items</h1>
+
+<% @showcase_items.each do |item|%>
+
+<p><%= item.title%>	</p>
+<p><%= item.subtitle %>	</p>
+<p><%= item.body%>	</p>
+<%= image_tag item.thumb_image %>
+
+<% end %>
