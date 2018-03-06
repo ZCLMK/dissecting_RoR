@@ -4,11 +4,11 @@ class ShowcasesController < ApplicationController
   end
 
   def new
-    @showcase_items = Showcase.new
+    @showcase_item = Showcase.new
   end
 
   def create
-    @showcase_item = Showcase.new(params.require(:showcase).permit(:title, :subtile, :body))
+    @wtf = Showcase.new(params.require(:showcase).permit(:title, :subtile, :body))
 
     respond_to do |format|
       if @showcase_item.save
@@ -16,6 +16,10 @@ class ShowcasesController < ApplicationController
       else
         format.html { render :new }
       end
+    end
+
+    def edit
+      @showcase_item = Showcase.find(params[:id])
     end
   end
 
