@@ -3,7 +3,8 @@
 <%= form_for(@showcase_item) do |form| %>
 
   <div class="field">
-    <%= form.label :titleok %>
+    <!-- labels :title ==> could be anything (e.g 'votre titre') (similar to label[value] in HTML -->
+    <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
 

@@ -1,10 +1,11 @@
 <h1>Showcase Items</h1>
 
+<%= link_to "Create", new_showcase_path %>
 <% @showcase_items.each do |item|%>
 
 <p><%= item.title%>	</p>
 <p><%= item.subtitle %>	</p>
 <p><%= item.body%>	</p>
 <%= image_tag item.thumb_image unless item.thumb_image.nil? %>
-
+<%= link_to 'Modifier une entrée', edit_showcase_path(item.id)%>
 <% end %>
