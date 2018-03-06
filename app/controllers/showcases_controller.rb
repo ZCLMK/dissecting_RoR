@@ -8,7 +8,7 @@ class ShowcasesController < ApplicationController
   end
 
   def create
-    @wtf = Showcase.new(params.require(:showcase).permit(:title, :subtile, :body))
+    @showcase_item = Showcase.new(params.require(:showcase).permit(:title, :subtile, :body))
 
     respond_to do |format|
       if @showcase_item.save
@@ -17,9 +17,20 @@ class ShowcasesController < ApplicationController
         format.html { render :new }
       end
     end
+  end
 
     def edit
       @showcase_item = Showcase.find(params[:id])
+    end
+
+     def update
+      @showcase_item = Showcase.find(params[:id])
+    respond_to do |format|
+      if @showcase_item.update(params.require(:showcase).permit(:title,:subtitle, :body))
+        format.html { redirect_to showcases_path, notice: 'Modification enregistrée.' }
+      else
+        format.html { render :edit }
+      end
     end
   end
 
