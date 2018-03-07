@@ -38,4 +38,14 @@ class ShowcasesController < ApplicationController
       @showcase_item = Showcase.find(params[:id])
   end
 
+  def destroy
+    @showcase_item = Showcase.find(params[:id])
+    @showcase_item.destroy
+
+    respond_to do |format|
+      format.html { redirect_to showcases_url, notice: 'Supprimé' }
+    end
+
+  end
+
 end
