@@ -34,4 +34,8 @@ class ShowcasesController < ApplicationController
     end
   end
 
+  def show
+      @showcase_item = Showcase.find(params[:id])
+  end
+
 end

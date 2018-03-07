@@ -3,9 +3,9 @@
 <%= link_to "Create", new_showcase_path %>
 <% @showcase_items.each do |item|%>
 
-<p><%= item.title%>	</p>
+<p><%= link_to item.title, showcase_path(item.id) %></p> <!-- '.id' est optionnel-->
 <p><%= item.subtitle %>	</p>
 <p><%= item.body%>	</p>
 <%= image_tag item.thumb_image unless item.thumb_image.nil? %>
-<%= link_to 'Modifier une entrée', edit_showcase_path(item.id)%>
+<%= link_to 'Modifier une entrée', edit_showcase_path(item.id)%> <!-- '.id' est optionnel-->
 <% end %>
