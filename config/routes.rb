@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  resources :showcases
-  get 'pages/home'
+  resources :showcases, except: [:show]
+  get 'showcase/:id' => 'showcases#show', as: 'portfolio_show' #'as:' => Prefixe personnalisé pour ce controller (rediriger d'éventuels liens) dans la view.
+  get 'about' => 'pages#about' # equivalent à: get 'about', to: 'pages#about'
+  get 'contact' => 'pages#contact'
 
-  get 'pages/about'
-
-  get 'pages/contact'
-
-  resources :blogs
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :blogs do
+    member do 
+      get :toggle_status
+    end
+  end
+      
+root to: 'pages#home'
 end

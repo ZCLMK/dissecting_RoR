@@ -1,0 +1,12 @@
+<h1>Showcase items</h1>
+
+<%= link_to "Create", new_showcase_path %>
+<% @showcase_items.each do |showcase_item|%>
+
+<p><%= link_to showcase_item.title, portfolio_show_path(showcase_item.id) %></p> <!-- '.id' est optionnel-->
+<p><%= showcase_item.subtitle %>	</p>
+<p><%= showcase_item.body%>	</p>
+<%= image_tag showcase_item.thumb_image unless showcase_item.thumb_image.nil? %>
+<%= link_to 'Modifier une entrée', edit_showcase_path(showcase_item.id)%> <!-- '.id' est optionnel-->
+<%= link_to 'Supprimer', showcase_path(showcase_item), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
