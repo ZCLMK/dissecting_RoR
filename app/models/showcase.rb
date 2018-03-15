@@ -6,12 +6,14 @@ class Showcase < ApplicationRecord
   end
 
   scope :rails, ->{where(subtitle: "Ruby on Rails")}
+#------------------------------------------------------------
+  #déclarer une VALEUR PAR DEFAULT lors de la création d'un object showcase (initialisation = 'new', pas 'create' )
 
-  #set a default value upon initialization (when new method, not create method)
   after_initialize :set_defaults
 
   def set_defaults
-    self.main_image ||= "http://via.placeholder.com/600x400"
+    self.main_image ||= "http://via.placeholder.com/600x400" # '||= ' veut dire si aucune valeur n'est fournie.
     self.thumb_image ||= "http://via.placeholder.com/350x200"
   end
 end
+#------------------------------------------------------------
