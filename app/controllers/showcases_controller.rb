@@ -12,7 +12,6 @@ class ShowcasesController < ApplicationController
 
     respond_to do |format|
       if @showcase_item.save
-        byebug
         format.html { redirect_to showcases_path, notice: 'Votre contribution au portfolio a bien été sauvegardée .' }
       else
         format.html { render :new }
