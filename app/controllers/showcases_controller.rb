@@ -8,11 +8,12 @@ class ShowcasesController < ApplicationController
   end
 
   def create
-    @showcase_item = Showcase.new(params.require(:showcase).permit(:title, :subtile, :body))
+    @showcase_item = Showcase.new(params.require(:showcase).permit(:title, :subtitle, :body))
 
     respond_to do |format|
       if @showcase_item.save
-        format.html { redirect_to showcases_path, notice: 'Votre contribution au portfolio a bien été créee .' }
+        byebug
+        format.html { redirect_to showcases_path, notice: 'Votre contribution au portfolio a bien été sauvegardée .' }
       else
         format.html { render :new }
       end
