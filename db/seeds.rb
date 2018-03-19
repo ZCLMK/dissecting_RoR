@@ -50,3 +50,10 @@ end
     thumb_image:"http://via.placeholder.com/350x200"
     )
   end
+
+  3.times do |techno|
+    Showcase.last.technologies.create!(  #<= this syntaxe takes care of indexing the foreign key for us
+      name: "Technology #{techno}"
+    )
+  end
+  puts "3 technologies created"
