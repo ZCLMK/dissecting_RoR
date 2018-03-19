@@ -1,6 +1,10 @@
 class Showcase < ApplicationRecord
   has_many :technologies
-  validates_presence_of :title, :body, :main_image, :thumb_image
+  accepts_nested_attributes_for :technologies,
+                                reject_if: proc { |attrs| attrs['name'].blank? }
+    validates_presence_of :title, :body, :main_image, :thumb_image
+    include Placeholder
+    validates_presence_of :title, :body, :main_image, :thumb_image
 
   def self.react
     where(subtitle:"React")
