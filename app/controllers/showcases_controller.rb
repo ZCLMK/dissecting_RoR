@@ -5,10 +5,12 @@ class ShowcasesController < ApplicationController
 
   def new
     @showcase_item = Showcase.new
+    3.times { @showcase_item.technologies.build }
   end
 
   def create
-    @showcase_item = Showcase.new(params.require(:showcase).permit(:title, :subtitle, :body))
+    #STRONG parameters
+    @showcase_item = Showcase.new(params.require(:showcase).permit(:title, :subtitle, :body, technologies_attributes:[:name]))
 
     respond_to do |format|
       if @showcase_item.save

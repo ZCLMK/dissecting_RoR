@@ -4,3 +4,8 @@
 <em><%= @showcase_item.title %></em>
 <p><%= @showcase_item.subtitle %></p>
 <p><%= @showcase_item.body %></p>
+
+<h2>technologies used</h2>
+<% @showcase_item.technologies.each do |tech| %>
+<p><%= tech.name %></p>
+<% end %>
